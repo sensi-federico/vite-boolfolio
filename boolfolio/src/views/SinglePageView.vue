@@ -37,10 +37,14 @@ export default {
 
 <template>
 
-    <div class="single-project">
-        {{ $route.params.slug }}
-
-        {/* Your project data here */}
+    <div class="container" v-if="project">
+        <h1>Title: {{ project.title }}</h1>
+        <h4>Slug: {{ $route.params.slug }} </h4>
+        <p class="lead">Description: {{ project.description }}</p>
+        <div class="div d-flex">
+            Technologies:
+            <p v-for="technology in project.technologies">#{{ technology.name }}</p>
+        </div>
     </div>
 </template>
 
