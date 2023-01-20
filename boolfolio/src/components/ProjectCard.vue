@@ -3,18 +3,18 @@ export default {
     name: 'ProjectCard',
     props: {
         title: String,
-        cover: String,
         description: String,
-        type: String,
+        type: Object,
         technologies: Array,
+        slug: String,
     },
     methods: {
-        getImagePath(path) {
-            console.log(path);
-            if (path) {
-                return this.base_api_url + "/storage/" + path;
-            }
-        },
+        // getImagePath(path) {
+        //     console.log(path);
+        //     if (path) {
+        //         return this.base_api_url + "/storage/" + path;
+        //     }
+        // },
     }
 }
 </script>
@@ -22,13 +22,12 @@ export default {
 <template>
 
     <div class="card border-0 shadow-sm rounded-0 rounded-bottom">
-        <img class="card-image rounded-top" :src="getImagePath(cover)" alt="">
         <div class="card-body">
             <h4>{{ title }}</h4>
             <p>
                 {{ description }}
             </p>
-            <a href="#">Read more</a>
+            <router-link :to="{ name: 'single-page', params: { slug: slug } }">SinglePage</router-link>
         </div>
         <div class="card-footer text-muted">
             <div class="type">

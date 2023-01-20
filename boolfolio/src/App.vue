@@ -1,19 +1,17 @@
 <script>
-import AppMain from './components/AppMain.vue';
+import axios from 'axios';
+import AppNav from './components/AppNav.vue';
 
 export default {
     components: {
-        AppMain,
+        AppNav,
     }
 }
 </script>
 
 <template>
-    <section class="vue-home">
-        <div class="container">
-            <AppMain />
-        </div>
-    </section>
+    <AppNav />
+    <router-view></router-view>
 </template>
 
 <style lang="scss">
